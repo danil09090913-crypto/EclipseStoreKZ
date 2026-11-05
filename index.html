@@ -1,0 +1,1808 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eclipse Store — кальяны, табак и аренда с доставкой по Алматы и Астане</title>
+<meta name="description" content="Eclipse Store — премиальные кальяны, табак, аксессуары и аренда кальянов с доставкой за 60 минут по Алматы и Астане. Оплата Kaspi, заказ в WhatsApp.">
+<meta name="keywords" content="аренда кальяна Алматы, купить кальян Астана, доставка кальяна, табак для кальяна Алматы, кальян на дом">
+<meta property="og:title" content="Eclipse Store — кальяны и аренда с доставкой по Алматы и Астане">
+<meta property="og:description" content="Премиальные кальяны, табак и аренда. Доставка за 60 минут по Алматы и Астане.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Unbounded:wght@500;600;700;800&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Store",
+  "name": "Eclipse Store",
+  "description": "Кальяны, табак, аксессуары и аренда кальянов с доставкой по Алматы и Астане",
+  "areaServed": ["Алматы", "Астана"],
+  "openingHours": "Mo-Su 12:00-04:00",
+  "priceRange": "₸₸",
+  "telephone": "+77472834087",
+  "currenciesAccepted": "KZT"
+}
+</script>
+<style>
+:root{
+  --bg:#0A0908;
+  --card:#151210;
+  --card-hi:#1c1815;
+  --border:#2A241F;
+  --text:#F4EEE6;
+  --dim:#A89C8E;
+  --a1:#FF6A1A;
+  --a2:#F5B041;
+  --grad:linear-gradient(135deg,#FF6A1A 0%,#F5B041 100%);
+  --red:#B3261E;
+  --wa:#25D366;
+  --r:18px;
+  --r-sm:12px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;background:#0A0908}
+body{
+  font-family:'Inter',system-ui,sans-serif;
+  color:var(--text);line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  background:
+    radial-gradient(ellipse at 90% 0%, rgba(255,106,26,.10), transparent 45%),
+    radial-gradient(ellipse at 0% 90%, rgba(179,38,30,.09), transparent 45%),
+    radial-gradient(ellipse at 50% 50%, rgba(245,176,65,.03), transparent 70%),
+    #0A0908;
+  background-attachment:fixed;
+}
+body.locked{overflow:hidden}
+h1,h2,h3,h4{font-family:'Unbounded',sans-serif;font-weight:700;line-height:1.15;letter-spacing:-.02em}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit}
+input,select,textarea{font-family:inherit;font-size:16px}
+img,svg{display:block;max-width:100%}
+:focus-visible{outline:2px solid var(--a2);outline-offset:2px;border-radius:6px}
+::selection{background:var(--a1);color:#0A0908}
+.container{width:100%;max-width:1200px;margin:0 auto;padding:0 16px}
+.grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* Background particle canvas */
+.bg-canvas{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+main{position:relative;z-index:1}
+.footer{position:relative;z-index:1}
+
+/* Buttons */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:12px 20px;border-radius:100px;font-weight:600;font-size:14px;
+  transition:transform .15s,box-shadow .25s,background .2s;
+  text-align:center;white-space:nowrap;
+}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:var(--grad);color:#0A0908;box-shadow:0 6px 24px rgba(255,106,26,.35)}
+.btn-primary:hover{box-shadow:0 8px 32px rgba(255,106,26,.55);transform:translateY(-1px)}
+.btn-outline{border:1px solid var(--border);color:var(--text)}
+.btn-outline:hover{border-color:var(--a1);color:var(--a1);box-shadow:0 0 20px rgba(255,106,26,.15)}
+.btn-wa{background:var(--wa);color:#0A0908}
+.btn-wa:hover{box-shadow:0 6px 24px rgba(37,211,102,.4);transform:translateY(-1px)}
+.btn-sm{padding:9px 14px;font-size:13px}
+.btn-block{width:100%}
+
+/* Age gate */
+.age-gate{position:fixed;inset:0;z-index:10000;background:radial-gradient(circle at 50% 40%,rgba(255,106,26,.18),transparent 65%),#0A0908;display:none;align-items:center;justify-content:center;padding:20px}
+.age-gate.active{display:flex}
+.age-box{max-width:420px;width:100%;background:var(--card);border:1px solid var(--border);border-radius:24px;padding:32px 24px;text-align:center;box-shadow:0 0 80px rgba(255,106,26,.25)}
+.age-box h2{font-size:24px;margin-bottom:8px}
+.age-box p{color:var(--dim);font-size:14px;margin-bottom:24px}
+.age-box .btns{display:grid;gap:10px}
+.age-eclipse{width:80px;height:80px;margin:0 auto 20px;position:relative;border-radius:50%;background:#000;box-shadow:0 0 40px 8px rgba(255,106,26,.6),0 0 80px 16px rgba(245,176,65,.25)}
+
+/* Header */
+.header{position:sticky;top:0;z-index:100;background:rgba(10,9,8,.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.h-inner{display:flex;align-items:center;justify-content:space-between;height:62px;gap:12px}
+.logo{display:flex;align-items:center;gap:9px;font-family:'Unbounded',sans-serif;font-weight:700;font-size:15px;letter-spacing:-.02em}
+.logo-mark{width:30px;height:30px;border-radius:50%;background:#000;box-shadow:0 0 14px 3px rgba(255,106,26,.6),0 0 0 1px rgba(245,176,65,.4) inset;position:relative;flex:0 0 30px}
+.logo-mark::after{content:'';position:absolute;inset:-3px;border-radius:50%;border:1px solid rgba(245,176,65,.35);box-shadow:0 0 8px rgba(255,106,26,.6)}
+.logo span{display:none}
+@media(min-width:420px){.logo span{display:inline}}
+
+.nav-toggle{width:38px;height:38px;display:flex;align-items:center;justify-content:center;border:1px solid var(--border);border-radius:10px;color:var(--text)}
+.h-actions{display:flex;align-items:center;gap:8px}
+.city-switch{display:none;gap:4px;padding:3px;border:1px solid var(--border);border-radius:100px;background:rgba(255,255,255,.02)}
+.city-switch button{padding:6px 12px;font-size:12px;font-weight:600;border-radius:100px;color:var(--dim);transition:.2s}
+.city-switch button.active{background:var(--grad);color:#0A0908;box-shadow:0 2px 12px rgba(255,106,26,.4)}
+@media(min-width:768px){.city-switch{display:flex}}
+.cart-btn{position:relative;width:40px;height:40px;display:flex;align-items:center;justify-content:center;border:1px solid var(--border);border-radius:12px;background:rgba(255,255,255,.02);transition:.2s}
+.cart-btn:hover{border-color:var(--a1);box-shadow:0 0 18px rgba(255,106,26,.25)}
+.cart-count{position:absolute;top:-6px;right:-6px;min-width:18px;height:18px;padding:0 5px;border-radius:100px;background:var(--a1);color:#0A0908;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;opacity:0;transform:scale(.5);transition:.2s;box-shadow:0 0 10px rgba(255,106,26,.7)}
+.cart-count.show{opacity:1;transform:scale(1)}
+.wa-hdr{display:none}
+@media(min-width:900px){.wa-hdr{display:inline-flex}}
+
+.nav{position:fixed;top:62px;left:0;right:0;bottom:0;background:rgba(10,9,8,.98);backdrop-filter:blur(20px);padding:24px 20px;transform:translateX(-100%);transition:transform .3s;z-index:99;display:flex;flex-direction:column;gap:4px}
+.nav.open{transform:translateX(0)}
+.nav a{padding:14px 12px;border-radius:12px;font-size:15px;font-weight:500;color:var(--text);border-bottom:1px solid var(--border)}
+.nav a:hover{background:var(--card);color:var(--a1)}
+.nav .city-switch{display:flex;margin-top:16px}
+@media(min-width:900px){
+  .nav{position:static;transform:none;background:none;padding:0;display:flex;flex-direction:row;gap:6px;flex:1;justify-content:center;border:0;backdrop-filter:none}
+  .nav a{border:0;padding:8px 12px;font-size:14px;color:var(--dim)}
+  .nav a:hover{background:none;color:var(--text)}
+  .nav .city-switch{display:none;margin:0}
+  .nav-toggle{display:none}
+}
+
+/* Hero */
+.hero{position:relative;padding:48px 0 72px;overflow:hidden}
+.hero-eclipse{position:absolute;top:50%;right:-180px;transform:translateY(-50%);width:520px;height:520px;pointer-events:none;z-index:0;opacity:.75}
+@media(max-width:768px){.hero-eclipse{right:-250px;opacity:.55}}
+.eclipse-ring{position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle,transparent 38%,rgba(255,106,26,.55) 52%,rgba(245,176,65,.25) 60%,transparent 72%);filter:blur(18px);animation:eclipsePulse 6s ease-in-out infinite}
+.eclipse-core{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:55%;height:55%;border-radius:50%;background:#000;box-shadow:0 0 80px 16px rgba(255,106,26,.45),0 0 160px 32px rgba(245,176,65,.15)}
+@keyframes eclipsePulse{0%,100%{opacity:.85;transform:scale(1)}50%{opacity:1;transform:scale(1.05)}}
+
+.hero-content{position:relative;z-index:1;display:grid;gap:22px;max-width:640px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:100px;background:rgba(255,106,26,.1);border:1px solid rgba(255,106,26,.3);font-size:12px;font-weight:600;color:var(--a2);width:max-content;max-width:100%}
+.hero-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--a1);box-shadow:0 0 8px var(--a1);animation:blink 2s infinite}
+@keyframes blink{50%{opacity:.4}}
+.hero h1{font-size:clamp(30px,7vw,54px);line-height:1.05}
+.hero-sub{color:var(--dim);font-size:16px;max-width:520px}
+@media(min-width:768px){.hero-sub{font-size:17px}}
+.hero-cta{display:flex;flex-wrap:wrap;gap:10px}
+.hero-perks{display:grid;grid-template-columns:1fr;gap:10px;margin-top:16px}
+@media(min-width:560px){.hero-perks{grid-template-columns:repeat(3,1fr)}}
+.perk{display:flex;align-items:center;gap:10px;padding:12px 14px;background:rgba(21,18,16,.7);border:1px solid var(--border);border-radius:14px;font-size:13px;font-weight:500;transition:.2s}
+.perk:hover{border-color:rgba(255,106,26,.4);box-shadow:0 0 20px rgba(255,106,26,.15)}
+.perk svg{flex:0 0 20px;color:var(--a1)}
+
+/* Sections */
+.section{padding:64px 0}
+@media(min-width:768px){.section{padding:88px 0}}
+.s-head{display:flex;flex-direction:column;gap:8px;margin-bottom:32px;max-width:640px}
+.s-eyebrow{font-size:12px;font-weight:600;color:var(--a1);letter-spacing:.15em;text-transform:uppercase}
+.s-title{font-size:clamp(24px,5vw,36px)}
+.s-sub{color:var(--dim);font-size:15px}
+
+/* Catalog */
+.catalog-tabs{display:flex;gap:6px;padding:5px;background:var(--card);border:1px solid var(--border);border-radius:100px;overflow-x:auto;scrollbar-width:none;margin-bottom:20px}
+.catalog-tabs::-webkit-scrollbar{display:none}
+.tab{padding:10px 16px;border-radius:100px;font-size:13px;font-weight:600;white-space:nowrap;color:var(--dim);transition:.2s}
+.tab.active{background:var(--grad);color:#0A0908;box-shadow:0 4px 20px rgba(255,106,26,.35)}
+.tab:hover:not(.active){color:var(--text)}
+
+.catalog-controls{display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap}
+.search-wrap{flex:1;min-width:200px;position:relative}
+.search-wrap svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--dim);pointer-events:none}
+.search-input{width:100%;padding:12px 14px 12px 42px;background:var(--card);border:1px solid var(--border);border-radius:12px;color:var(--text);font-size:14px;transition:.2s}
+.search-input:focus{border-color:var(--a1);outline:none;box-shadow:0 0 18px rgba(255,106,26,.15)}
+.sort-select{padding:12px 36px 12px 14px;background:var(--card);border:1px solid var(--border);border-radius:12px;color:var(--text);font-size:14px;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23A89C8E' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;cursor:pointer;transition:.2s}
+.sort-select:hover{border-color:var(--a1)}
+
+.grid{display:grid;gap:14px;grid-template-columns:1fr}
+@media(min-width:560px){.grid{grid-template-columns:1fr 1fr}}
+@media(min-width:900px){.grid{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:1100px){.grid{grid-template-columns:repeat(4,1fr)}}
+
+/* Card */
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;transition:transform .25s,border-color .25s,box-shadow .25s;position:relative}
+.card:hover{transform:translateY(-4px);border-color:rgba(255,106,26,.5);box-shadow:0 14px 44px rgba(255,106,26,.15),0 0 0 1px rgba(255,106,26,.1)}
+.card-media{position:relative;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 60%,rgba(255,106,26,.08),transparent 70%),#0F0D0B;padding:14px}
+.card-media svg.hookah{width:75%;height:75%}
+.badges{position:absolute;top:10px;left:10px;display:flex;flex-direction:column;gap:4px;z-index:2}
+.badge{font-size:10px;font-weight:700;padding:4px 8px;border-radius:100px;letter-spacing:.03em;text-transform:uppercase}
+.badge.hit{background:var(--grad);color:#0A0908;box-shadow:0 2px 10px rgba(255,106,26,.5)}
+.badge.new{background:rgba(245,176,65,.15);color:var(--a2);border:1px solid rgba(245,176,65,.4)}
+.badge.novice{background:rgba(255,255,255,.08);color:var(--text);border:1px solid var(--border)}
+.badge.sale{background:var(--red);color:#fff}
+.card-body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:8px;flex:1}
+.card-body h3{font-family:'Unbounded',sans-serif;font-size:15px;font-weight:600;line-height:1.25}
+.specs{font-size:12px;color:var(--dim);display:flex;gap:8px;flex-wrap:wrap}
+.specs span{display:inline-flex;align-items:center;gap:4px}
+.specs span::before{content:'';width:3px;height:3px;border-radius:50%;background:var(--a1);margin-right:2px}
+.specs span:first-child::before{display:none}
+.desc{font-size:12.5px;color:var(--dim);line-height:1.45;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:36px}
+.price-box{margin-top:auto;padding-top:10px;border-top:1px dashed var(--border);display:flex;flex-direction:column;gap:4px}
+.price{font-family:'Unbounded',sans-serif;font-size:18px;font-weight:700;color:var(--text)}
+.price-sub{font-size:11.5px;color:var(--dim)}
+.price-sub b{color:var(--a2);font-weight:600}
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:4px}
+.quick-order{margin-top:6px;font-size:12px;color:var(--dim);text-decoration:underline;text-underline-offset:3px;background:none;padding:4px;transition:.2s}
+.quick-order:hover{color:var(--a2)}
+
+/* Tobacco card */
+.tobacco-card .card-media{aspect-ratio:auto;height:120px;background:#0F0D0B}
+.flavor-orb{width:78px;height:78px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 30% 25%,var(--c1),var(--c2));box-shadow:inset 0 0 20px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.4),0 0 40px var(--c1);transition:.3s}
+.tobacco-card:hover .flavor-orb{transform:scale(1.05);box-shadow:inset 0 0 20px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.4),0 0 60px var(--c1)}
+.flavor-orb svg{width:34px;height:34px;color:rgba(255,255,255,.9);filter:drop-shadow(0 1px 2px rgba(0,0,0,.4))}
+.strength{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--dim)}
+.strength-dots{display:inline-flex;gap:3px}
+.strength-dots i{width:6px;height:6px;border-radius:50%;background:var(--border)}
+.strength-dots i.on{background:var(--a1);box-shadow:0 0 4px rgba(255,106,26,.6)}
+.gram-options{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin:6px 0}
+.gram-btn{padding:7px 4px;font-size:11px;font-weight:600;border:1px solid var(--border);border-radius:8px;background:transparent;color:var(--dim);transition:.15s}
+.gram-btn.active{background:rgba(255,106,26,.12);border-color:var(--a1);color:var(--a1);box-shadow:0 0 12px rgba(255,106,26,.15)}
+.gram-btn small{display:block;font-size:10px;font-weight:500;opacity:.85;margin-top:1px}
+
+/* Combo */
+.combo-card .card-media{aspect-ratio:auto;height:130px;background:radial-gradient(circle at 50% 60%,rgba(255,106,26,.15),transparent 70%),#0F0D0B}
+.combo-icon{width:64px;height:64px;border-radius:16px;background:var(--grad);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(255,106,26,.35)}
+.combo-icon svg{color:#0A0908;width:32px;height:32px}
+.combo-comp{font-size:12px;color:var(--dim);line-height:1.5;margin:2px 0}
+.combo-comp b{color:var(--text);font-weight:600}
+.save-badge{position:absolute;top:10px;right:10px;background:var(--red);color:#fff;font-size:10px;font-weight:700;padding:5px 9px;border-radius:100px;letter-spacing:.02em;box-shadow:0 2px 12px rgba(179,38,30,.5)}
+
+/* Accessory */
+.acc-card .card-media{aspect-ratio:auto;height:110px}
+.acc-icon{width:56px;height:56px;border-radius:14px;background:rgba(255,106,26,.1);border:1px solid rgba(255,106,26,.25);display:flex;align-items:center;justify-content:center;color:var(--a2);transition:.3s}
+.acc-card:hover .acc-icon{background:rgba(255,106,26,.18);box-shadow:0 0 24px rgba(255,106,26,.35)}
+.acc-icon svg{width:28px;height:28px}
+.acc-card .price-box{border-top:0;padding-top:4px}
+
+/* Rental */
+.term-pills{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin:6px 0}
+.term-btn{padding:8px 4px;font-size:11px;font-weight:600;border:1px solid var(--border);border-radius:8px;color:var(--dim);background:transparent;transition:.15s}
+.term-btn.active{background:rgba(255,106,26,.12);border-color:var(--a1);color:var(--a1);box-shadow:0 0 12px rgba(255,106,26,.15)}
+.term-btn small{display:block;font-size:9.5px;font-weight:500;opacity:.8;margin-top:1px}
+
+.sub-title{font-family:'Unbounded',sans-serif;font-size:16px;font-weight:600;margin:32px 0 14px;display:flex;align-items:center;gap:10px}
+.sub-title::before{content:'';width:20px;height:2px;background:var(--grad);border-radius:2px}
+
+.empty{text-align:center;padding:60px 20px;color:var(--dim);grid-column:1/-1}
+.empty svg{margin:0 auto 12px;opacity:.4}
+
+/* How to */
+.steps{display:grid;gap:14px;grid-template-columns:1fr}
+@media(min-width:600px){.steps{grid-template-columns:1fr 1fr}}
+@media(min-width:900px){.steps{grid-template-columns:repeat(4,1fr)}}
+.step{padding:22px 20px;background:var(--card);border:1px solid var(--border);border-radius:var(--r);position:relative;overflow:hidden;transition:.25s}
+.step:hover{border-color:rgba(255,106,26,.35);box-shadow:0 10px 30px rgba(255,106,26,.08)}
+.step-num{font-family:'Unbounded',sans-serif;font-size:44px;font-weight:800;line-height:1;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:8px}
+.step h4{font-size:15px;margin-bottom:6px}
+.step p{font-size:13px;color:var(--dim);line-height:1.5}
+
+/* Rental terms */
+.terms-grid{display:grid;gap:14px;grid-template-columns:1fr}
+@media(min-width:600px){.terms-grid{grid-template-columns:1fr 1fr}}
+.term-card{padding:22px 20px;background:var(--card);border:1px solid var(--border);border-radius:var(--r);transition:.25s}
+.term-card:hover{border-color:rgba(255,106,26,.35)}
+.term-card svg{color:var(--a1);margin-bottom:12px;width:28px;height:28px}
+.term-card h4{font-size:15px;margin-bottom:8px}
+.term-card p,.term-card ul{font-size:13px;color:var(--dim);line-height:1.6}
+.term-card ul{list-style:none;padding:0}
+.term-card li{padding-left:16px;position:relative;margin-bottom:4px}
+.term-card li::before{content:'';position:absolute;left:0;top:9px;width:5px;height:5px;border-radius:50%;background:var(--a1)}
+
+/* FAQ */
+.faq{display:flex;flex-direction:column;gap:8px;max-width:840px;margin:0 auto}
+.faq-item{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:border-color .2s}
+.faq-item.open{border-color:rgba(255,106,26,.4)}
+.faq-q{width:100%;text-align:left;padding:16px 18px;font-family:'Unbounded',sans-serif;font-size:14px;font-weight:600;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.faq-q::after{content:'+';font-size:22px;color:var(--a1);transition:transform .3s;flex:0 0 auto;line-height:1}
+.faq-item.open .faq-q::after{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease;color:var(--dim);font-size:14px;line-height:1.65}
+.faq-a-inner{padding:0 18px 18px}
+
+/* Footer */
+.footer{background:rgba(6,5,4,.75);border-top:1px solid var(--border);padding:48px 0 24px;margin-top:40px;backdrop-filter:blur(10px)}
+.f-grid{display:grid;gap:28px;grid-template-columns:1fr;margin-bottom:32px}
+@media(min-width:700px){.f-grid{grid-template-columns:1.4fr 1fr 1fr}}
+.f-title{font-family:'Unbounded',sans-serif;font-size:13px;font-weight:700;margin-bottom:12px;color:var(--text)}
+.f-text,.f-list{font-size:13px;color:var(--dim);line-height:1.7}
+.f-list{list-style:none}
+.f-list li{margin-bottom:6px}
+.f-list a:hover{color:var(--a1)}
+.f-bottom{padding-top:20px;border-top:1px solid var(--border);display:flex;flex-direction:column;gap:10px;font-size:11.5px;color:#6B6058}
+.warn{padding:12px 14px;background:rgba(179,38,30,.08);border:1px solid rgba(179,38,30,.25);border-radius:10px;color:#D9A5A0;font-size:11.5px;line-height:1.5;margin-bottom:16px}
+
+/* Floating WhatsApp */
+.wa-float{position:fixed;bottom:20px;right:20px;z-index:90;width:56px;height:56px;border-radius:50%;background:var(--wa);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(37,211,102,.45),0 0 0 1px rgba(255,255,255,.1) inset;transition:transform .2s}
+.wa-float::before{content:'';position:absolute;inset:-6px;border-radius:50%;background:var(--wa);opacity:.3;animation:waPulse 2s infinite;z-index:-1}
+@keyframes waPulse{0%,100%{transform:scale(1);opacity:.3}50%{transform:scale(1.15);opacity:0}}
+.wa-float:hover{transform:scale(1.08)}
+.wa-float svg{width:28px;height:28px;color:#0A0908}
+
+/* Overlay */
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);backdrop-filter:blur(4px);z-index:200;opacity:0;pointer-events:none;transition:opacity .25s}
+.overlay.open{opacity:1;pointer-events:auto}
+
+/* Cart panel */
+.cart-panel{position:fixed;top:0;right:0;bottom:0;width:100%;max-width:440px;background:var(--card);z-index:201;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .3s ease;border-left:1px solid var(--border)}
+.cart-panel.open{transform:translateX(0)}
+.cart-head{padding:16px 18px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:12px}
+.cart-head h3{font-size:17px}
+.cart-close{width:34px;height:34px;border-radius:10px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--dim);transition:.2s}
+.cart-close:hover{color:var(--a1);border-color:var(--a1)}
+.cart-list{flex:1;overflow-y:auto;padding:12px 18px;display:flex;flex-direction:column;gap:10px}
+.cart-list::-webkit-scrollbar{width:5px}
+.cart-list::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+.ci{background:#0F0D0B;border:1px solid var(--border);border-radius:12px;padding:12px}
+.ci-top{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:8px}
+.ci-name{font-size:13.5px;font-weight:600;line-height:1.3}
+.ci-variant{font-size:11px;color:var(--a2);margin-top:2px}
+.ci-remove{width:24px;height:24px;border-radius:6px;color:var(--dim);font-size:16px;display:flex;align-items:center;justify-content:center;flex:0 0 24px;transition:.2s}
+.ci-remove:hover{color:var(--red);background:rgba(179,38,30,.1)}
+.ci-opts{display:flex;gap:6px;margin-bottom:8px;flex-wrap:wrap}
+.ci-opt{padding:5px 10px;font-size:11px;font-weight:600;border:1px solid var(--border);border-radius:100px;color:var(--dim);background:transparent;transition:.15s}
+.ci-opt.active{background:rgba(255,106,26,.12);border-color:var(--a1);color:var(--a1)}
+.ci-bottom{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.qty{display:flex;align-items:center;gap:6px;background:#151210;border:1px solid var(--border);border-radius:100px;padding:3px}
+.qty button{width:26px;height:26px;border-radius:50%;background:transparent;color:var(--text);font-size:16px;display:flex;align-items:center;justify-content:center;line-height:1;transition:.15s}
+.qty button:hover{background:rgba(255,106,26,.15);color:var(--a1)}
+.qty span{min-width:20px;text-align:center;font-size:13px;font-weight:600}
+.ci-price{font-family:'Unbounded',sans-serif;font-weight:700;font-size:14px}
+.cart-empty{text-align:center;padding:40px 20px;color:var(--dim);font-size:14px}
+.cart-empty svg{margin:0 auto 12px;opacity:.4}
+
+.cart-foot{padding:16px 18px;border-top:1px solid var(--border);display:flex;flex-direction:column;gap:10px}
+.cart-total{display:flex;justify-content:space-between;align-items:center}
+.cart-total span{font-size:13px;color:var(--dim)}
+.cart-total strong{font-family:'Unbounded',sans-serif;font-size:20px;font-weight:700;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.cart-clear{font-size:12px;color:var(--dim);text-decoration:underline;text-underline-offset:3px;background:none;padding:4px;text-align:center;transition:.2s}
+.cart-clear:hover{color:var(--red)}
+
+/* Checkout modal */
+.modal{position:fixed;inset:0;z-index:202;display:none;align-items:center;justify-content:center;padding:16px}
+.modal.open{display:flex}
+.modal-box{background:var(--card);border:1px solid var(--border);border-radius:20px;max-width:480px;width:100%;max-height:90vh;overflow-y:auto;padding:24px;box-shadow:0 20px 80px rgba(0,0,0,.6)}
+.modal-box h3{font-size:19px;margin-bottom:4px}
+.modal-box .lead{font-size:12.5px;color:var(--dim);margin-bottom:20px;line-height:1.5}
+.form-field{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.form-field label{font-size:12px;font-weight:600;color:var(--dim);text-transform:uppercase;letter-spacing:.06em}
+.form-field input,.form-field select,.form-field textarea{padding:11px 13px;background:#0F0D0B;border:1px solid var(--border);border-radius:10px;color:var(--text);font-size:14px;width:100%;transition:.2s}
+.form-field input:focus,.form-field select:focus,.form-field textarea:focus{outline:none;border-color:var(--a1);box-shadow:0 0 18px rgba(255,106,26,.15)}
+.form-field textarea{resize:vertical;min-height:64px}
+.err{color:var(--red);font-size:11.5px;display:none;margin-top:2px}
+.form-field.has-err input,.form-field.has-err textarea{border-color:var(--red)}
+.form-field.has-err .err{display:block}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:480px){.form-row{grid-template-columns:1fr}}
+.pay-note{font-size:11.5px;color:var(--a2);background:rgba(245,176,65,.08);border:1px solid rgba(245,176,65,.2);padding:10px 12px;border-radius:10px;margin-bottom:16px;line-height:1.5}
+.modal-actions{display:flex;gap:8px;margin-top:8px}
+.modal-actions .btn{flex:1}
+
+/* Reveal */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:none}
+
+/* Small adjustments */
+@media(max-width:360px){
+  .hero-cta{flex-direction:column}
+  .hero-cta .btn{width:100%}
+}
+</style>
+</head>
+<body>
+
+<canvas id="bgCanvas" class="bg-canvas" aria-hidden="true"></canvas>
+
+<!-- Shared SVG gradients -->
+<svg style="position:absolute;width:0;height:0" aria-hidden="true">
+  <defs>
+    <linearGradient id="gFire" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FF6A1A"/>
+      <stop offset="1" stop-color="#F5B041"/>
+    </linearGradient>
+    <radialGradient id="gFlask" cx="50%" cy="40%" r="60%">
+      <stop offset="0" stop-color="#FF6A1A" stop-opacity=".4"/>
+      <stop offset="1" stop-color="#B3261E" stop-opacity=".15"/>
+    </radialGradient>
+  </defs>
+</svg>
+
+<!-- Age Gate -->
+<div class="age-gate" id="ageGate" role="dialog" aria-modal="true" aria-labelledby="ageTitle">
+  <div class="age-box">
+    <div class="age-eclipse" aria-hidden="true"></div>
+    <h2 id="ageTitle">Тебе есть 21?</h2>
+    <p>Сайт содержит информацию о табачной продукции и кальянах. Продажа и доставка лицам младше 21 года запрещена.</p>
+    <div class="btns">
+      <button class="btn btn-primary btn-block" id="ageYes">Мне есть 21 год</button>
+      <button class="btn btn-outline btn-block" id="ageNo">Выйти</button>
+    </div>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="header">
+  <div class="container h-inner">
+    <a href="#top" class="logo" aria-label="Eclipse Store — на главную">
+      <div class="logo-mark" aria-hidden="true"></div>
+      <span>Eclipse Store</span>
+    </a>
+    <nav class="nav" id="mainNav" aria-label="Главное меню">
+      <a href="#catalog">Каталог</a>
+      <a href="#catalog" data-tab-link="combos">Комбо</a>
+      <a href="#catalog" data-tab-link="rental">Аренда</a>
+      <a href="#how">Как заказать</a>
+      <a href="#faq">FAQ</a>
+      <div class="city-switch" role="group" aria-label="Выбор города">
+        <button data-city="Алматы" class="active">Алматы</button>
+        <button data-city="Астана">Астана</button>
+      </div>
+    </nav>
+    <div class="h-actions">
+      <div class="city-switch" role="group" aria-label="Выбор города">
+        <button data-city="Алматы" class="active">Алматы</button>
+        <button data-city="Астана">Астана</button>
+      </div>
+      <button class="cart-btn" id="cartBtn" aria-label="Открыть корзину">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+      <a href="#" class="btn btn-wa btn-sm wa-hdr" id="hdrWa" aria-label="Заказать в WhatsApp">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A7.85 7.85 0 0 0 12.05 4a7.94 7.94 0 0 0-6.9 11.9L4 20l4.2-1.1a7.93 7.93 0 0 0 3.84.98h.01A7.94 7.94 0 0 0 20 11.94a7.85 7.85 0 0 0-2.4-5.62zM12.05 18.5h-.01a6.6 6.6 0 0 1-3.36-.92l-.24-.14-2.5.65.67-2.43-.16-.25a6.59 6.59 0 0 1 10.27-8.2 6.55 6.55 0 0 1 1.93 4.66 6.6 6.6 0 0 1-6.6 6.63zm3.62-4.94c-.2-.1-1.17-.58-1.35-.65-.18-.07-.31-.1-.44.1-.13.2-.5.65-.62.79-.11.13-.23.15-.42.05-.2-.1-.83-.31-1.59-.98-.59-.53-.98-1.17-1.1-1.37-.11-.2-.01-.3.09-.4.09-.09.2-.23.3-.34.1-.11.13-.2.2-.33.07-.13.03-.25-.02-.35-.05-.1-.44-1.06-.6-1.45-.16-.38-.32-.33-.44-.33l-.38-.01c-.13 0-.34.05-.52.25-.18.2-.68.66-.68 1.62 0 .96.7 1.88.8 2.01.1.13 1.38 2.11 3.34 2.96.47.2.83.32 1.11.41.47.15.9.13 1.23.08.38-.06 1.17-.48 1.34-.94.16-.46.16-.86.11-.94-.05-.08-.18-.13-.38-.23z"/></svg>
+        WhatsApp
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Меню" aria-expanded="false" aria-controls="mainNav">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-eclipse" aria-hidden="true">
+    <div class="eclipse-ring"></div>
+    <div class="eclipse-core"></div>
+  </div>
+  <div class="container hero-content">
+    <span class="hero-badge">Доставка за 60 минут · Алматы и Астана</span>
+    <h1>Кальян у тебя дома <span class="grad-text">за 60 минут</span></h1>
+    <p class="hero-sub">Премиальные кальяны, табак и аренда с доставкой по Алматы и Астане. Чистое оборудование, большой выбор вкусов, оплата Kaspi. Работаем ежедневно 12:00–04:00.</p>
+    <div class="hero-cta">
+      <a href="#catalog" class="btn btn-primary">Выбрать кальян</a>
+      <a href="#" class="btn btn-wa" id="heroWa">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A7.85 7.85 0 0 0 12.05 4a7.94 7.94 0 0 0-6.9 11.9L4 20l4.2-1.1a7.93 7.93 0 0 0 3.84.98h.01A7.94 7.94 0 0 0 20 11.94a7.85 7.85 0 0 0-2.4-5.62zM12.05 18.5h-.01a6.6 6.6 0 0 1-3.36-.92l-.24-.14-2.5.65.67-2.43-.16-.25a6.59 6.59 0 0 1 10.27-8.2 6.55 6.55 0 0 1 1.93 4.66 6.6 6.6 0 0 1-6.6 6.63zm3.62-4.94c-.2-.1-1.17-.58-1.35-.65-.18-.07-.31-.1-.44.1-.13.2-.5.65-.62.79-.11.13-.23.15-.42.05-.2-.1-.83-.31-1.59-.98-.59-.53-.98-1.17-1.1-1.37-.11-.2-.01-.3.09-.4.09-.09.2-.23.3-.34.1-.11.13-.2.2-.33.07-.13.03-.25-.02-.35-.05-.1-.44-1.06-.6-1.45-.16-.38-.32-.33-.44-.33l-.38-.01c-.13 0-.34.05-.52.25-.18.2-.68.66-.68 1.62 0 .96.7 1.88.8 2.01.1.13 1.38 2.11 3.34 2.96.47.2.83.32 1.11.41.47.15.9.13 1.23.08.38-.06 1.17-.48 1.34-.94.16-.46.16-.86.11-.94-.05-.08-.18-.13-.38-.23z"/></svg>
+        Быстрый заказ в WhatsApp
+      </a>
+    </div>
+    <div class="hero-perks">
+      <div class="perk"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>Доставка за час</div>
+      <div class="perk"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9c1.55 0 3.02.39 4.3 1.09"/></svg>Чистое оборудование</div>
+      <div class="perk"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8 2 4 6 4 10c0 4 3 8 8 12 5-4 8-8 8-12 0-4-4-8-8-8z"/></svg>Большой выбор вкусов</div>
+    </div>
+  </div>
+</section>
+
+<!-- Catalog -->
+<section class="section" id="catalog">
+  <div class="container">
+    <div class="s-head reveal">
+      <span class="s-eyebrow">Каталог</span>
+      <h2 class="s-title">Выбери своё <span class="grad-text">затмение</span></h2>
+      <p class="s-sub">Кальяны, табак, комбо, аксессуары и аренда. Всё в наличии, всё с доставкой за час.</p>
+    </div>
+
+    <div class="catalog-tabs" id="tabs" role="tablist">
+      <button class="tab active" data-tab="hookahs" role="tab" aria-selected="true">Кальяны</button>
+      <button class="tab" data-tab="tobacco" role="tab" aria-selected="false">Табак</button>
+      <button class="tab" data-tab="combos" role="tab" aria-selected="false">Комбо</button>
+      <button class="tab" data-tab="rental" role="tab" aria-selected="false">Аренда</button>
+      <button class="tab" data-tab="accessories" role="tab" aria-selected="false">Аксессуары</button>
+    </div>
+
+    <div class="catalog-controls">
+      <div class="search-wrap">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="search" class="search-input" id="searchInput" placeholder="Поиск по названию..." aria-label="Поиск по каталогу">
+      </div>
+      <select class="sort-select" id="sortSelect" aria-label="Сортировка">
+        <option value="default">По популярности</option>
+        <option value="price-asc">Цена: по возрастанию</option>
+        <option value="price-desc">Цена: по убыванию</option>
+      </select>
+    </div>
+
+    <div class="grid" id="productGrid"></div>
+  </div>
+</section>
+
+<!-- How to order -->
+<section class="section" id="how">
+  <div class="container">
+    <div class="s-head reveal">
+      <span class="s-eyebrow">Как заказать</span>
+      <h2 class="s-title">Четыре шага до <span class="grad-text">дыма</span></h2>
+      <p class="s-sub">Никаких лишних движений — от выбора до курьера у двери.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><div class="step-num">01</div><h4>Выбираешь</h4><p>Кальян, табак или готовое комбо в каталоге. Или пиши в WhatsApp — подскажем.</p></div>
+      <div class="step reveal"><div class="step-num">02</div><h4>Кладёшь в корзину</h4><p>Отметь срок аренды или граммовку табака. Всё сохраняется прямо в браузере.</p></div>
+      <div class="step reveal"><div class="step-num">03</div><h4>Оформляешь в WhatsApp</h4><p>Одна кнопка — и мы получаем готовый заказ с адресом и суммой. Оплата Kaspi/перевод.</p></div>
+      <div class="step reveal"><div class="step-num">04</div><h4>Курьер привозит за час</h4><p>По Алматы и Астане. Привезём чистое оборудование и всё, что нужно для идеального дыма.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Rental terms -->
+<section class="section" id="rental-terms">
+  <div class="container">
+    <div class="s-head reveal">
+      <span class="s-eyebrow">Аренда</span>
+      <h2 class="s-title">Условия <span class="grad-text">аренды</span></h2>
+      <p class="s-sub">Прозрачные правила без сюрпризов. Всё, что нужно — уже в комплекте.</p>
+    </div>
+    <div class="terms-grid">
+      <div class="term-card reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        <h4>Залог</h4>
+        <p>Залог зависит от модели: от 15 000 до 60 000 ₸. Возвращается полностью после сдачи кальяна в целости. Для постоянных клиентов — без залога со второго заказа.</p>
+      </div>
+      <div class="term-card reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        <h4>Сроки</h4>
+        <ul>
+          <li>1 сутки — базовая ставка</li>
+          <li>3 дня — скидка 17%</li>
+          <li>7 дней — скидка 29%</li>
+          <li>Продление — по звонку в WhatsApp</li>
+        </ul>
+      </div>
+      <div class="term-card reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+        <h4>Что входит</h4>
+        <p>Шахта, колба, чаша, шланг, мундштук, щипцы, фольга/калауд, ершик. Табак и уголь — отдельно или в комбо. Всё продезинфицировано.</p>
+      </div>
+      <div class="term-card reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 18 0 9 9 0 0 0-18 0"/><path d="M12 8v4l3 3"/></svg>
+        <h4>Возврат и поломки</h4>
+        <p>Сдаёте в течение суток после окончания срока. При поломке по неосторожности — удерживаем стоимость ремонта из залога. При потере комплектующего — по прайсу. Все спорные ситуации решаем адекватно.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" id="faq">
+  <div class="container">
+    <div class="s-head reveal" style="margin-left:auto;margin-right:auto;text-align:center">
+      <span class="s-eyebrow">FAQ</span>
+      <h2 class="s-title">Частые <span class="grad-text">вопросы</span></h2>
+    </div>
+    <div class="faq" id="faqList">
+      <div class="faq-item"><button class="faq-q" aria-expanded="false">Как быстро вы доставляете?</button><div class="faq-a"><div class="faq-a-inner">В течение часа по Алматы и Астане после подтверждения заказа в WhatsApp. В пределах города. В часы пик (вечер пятницы, выходные) может быть чуть дольше — мы предупредим сразу при подтверждении заказа.</div></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false">Можно ли оплатить при получении?</button><div class="faq-a"><div class="faq-a-inner">Нет. Оплата только заранее — перевод или Kaspi. Причина простая: курьеры не возят наличные и терминалы, чтобы доставка шла быстро и без задержек на расчёты. Плюс предоплата защищает забронированное оборудование и вкус табака, который мы готовим под тебя. После перевода заказ сразу уходит курьеру.</div></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false">Есть ли самовывоз?</button><div class="faq-a"><div class="faq-a-inner">Нет. У нас нет шоурума — оборудование хранится на закрытом складе, где проходит обработка и дезинфекция. Поэтому работаем только через доставку: так мы гарантируем чистоту и сохранность каждой позиции.</div></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false">Как работает аренда и залог?</button><div class="faq-a"><div class="faq-a-inner">Выбираете модель, срок (1 сутки / 3 дня / неделя) и оставляете залог от 15 000 до 60 000 ₸ — зависит от кальяна. Залог возвращается полностью после сдачи. При поломке по неосторожности удерживаем стоимость ремонта, при потере комплектующего — по прайсу. Все спорные ситуации решаем адекватно — мы в этом бизнесе не первый год.</div></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false">Кто может заказывать?</button><div class="faq-a"><div class="faq-a-inner">Только лица старше 21 года. Курьер вправе попросить документ при получении заказа. Если вы младше — мы вынуждены отказать в доставке без возврата предоплаты.</div></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false">В какие районы доставляете?</button><div class="faq-a"><div class="faq-a-inner">По всему Алматы и Астане без ограничений по районам. За город — по договорённости, доплата за километраж.</div></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false">Что в комплекте с кальяном?</button><div class="faq-a"><div class="faq-a-inner">Колба, шахта, чаша, шланг, мундштук, щипцы, фольга (или калауд, если модель с калаудом). Табак и уголь — отдельно или в комбо. Всё, что нужно для идеального дыма — уже в коробке.</div></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false">Как чистите кальяны?</button><div class="faq-a"><div class="faq-a-inner">После каждой аренды каждый элемент проходит полную дезинфекцию: шахта и колба промываются специальным составом, чаша и мундштуки обрабатываются антисептиком, шланг меняется или дезинфицируется. Всё сушится и упаковывается.</div></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false">Можно ли вернуть или заменить?</button><div class="faq-a"><div class="faq-a-inner">Табак и уголь возврату не подлежат (санитарные нормы). При этом если вкус не зашёл — напишите в WhatsApp в течение суток, подберём замену из следующего заказа со скидкой. Кальян и аксессуары — по гарантии: заводской брак меняем бесплатно.</div></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false">Как связаться?</button><div class="faq-a"><div class="faq-a-inner">Только WhatsApp — напишите по кнопке ниже или на номер +7 747 283 40 87. В чате работаем ежедневно 12:00–04:00. Отвечаем быстро, помогаем с выбором, оформляем заказ.</div></div></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="warn">
+      ⚠️ ВНИМАНИЕ: Курение вредит вашему здоровью. Продажа табачной продукции и предоставление услуг кальяна лицам младше 21 года запрещены.
+    </div>
+    <div class="f-grid">
+      <div>
+        <div class="f-title">Eclipse Store</div>
+        <p class="f-text">Премиальные кальяны, табак и аренда с доставкой по Алматы и Астане. Чистое оборудование, быстрая доставка, оплата Kaspi.</p>
+        <a href="#" class="btn btn-wa btn-sm" style="margin-top:14px" id="footWa">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A7.85 7.85 0 0 0 12.05 4a7.94 7.94 0 0 0-6.9 11.9L4 20l4.2-1.1a7.93 7.93 0 0 0 3.84.98h.01A7.94 7.94 0 0 0 20 11.94a7.85 7.85 0 0 0-2.4-5.62zM12.05 18.5h-.01a6.6 6.6 0 0 1-3.36-.92l-.24-.14-2.5.65.67-2.43-.16-.25a6.59 6.59 0 0 1 10.27-8.2 6.55 6.55 0 0 1 1.93 4.66 6.6 6.6 0 0 1-6.6 6.63zm3.62-4.94c-.2-.1-1.17-.58-1.35-.65-.18-.07-.31-.1-.44.1-.13.2-.5.65-.62.79-.11.13-.23.15-.42.05-.2-.1-.83-.31-1.59-.98-.59-.53-.98-1.17-1.1-1.37-.11-.2-.01-.3.09-.4.09-.09.2-.23.3-.34.1-.11.13-.2.2-.33.07-.13.03-.25-.02-.35-.05-.1-.44-1.06-.6-1.45-.16-.38-.32-.33-.44-.33l-.38-.01c-.13 0-.34.05-.52.25-.18.2-.68.66-.68 1.62 0 .96.7 1.88.8 2.01.1.13 1.38 2.11 3.34 2.96.47.2.83.32 1.11.41.47.15.9.13 1.23.08.38-.06 1.17-.48 1.34-.94.16-.46.16-.86.11-.94-.05-.08-.18-.13-.38-.23z"/></svg>
+          Написать в WhatsApp
+        </a>
+      </div>
+      <div>
+        <div class="f-title">Города и график</div>
+        <ul class="f-list">
+          <li>Алматы — доставка по всему городу</li>
+          <li>Астана — доставка по всему городу</li>
+          <li>Ежедневно: 12:00 – 04:00</li>
+          <li>Среднее время доставки: 60 минут</li>
+        </ul>
+      </div>
+      <div>
+        <div class="f-title">Связь</div>
+        <ul class="f-list">
+          <li>WhatsApp: +7 747 283 40 87</li>
+          <li>Оплата: перевод / Kaspi</li>
+          <li>Возраст: строго 21+</li>
+          <li>Доставка без самовывоза</li>
+        </ul>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <div>© <span id="year"></span> Eclipse Store. Все права защищены.</div>
+      <div>Курение вредит вашему здоровью. Продажа лицам младше 21 года запрещена.</div>
+    </div>
+  </div>
+</footer>
+
+<!-- Floating WhatsApp -->
+<a href="#" class="wa-float" id="floatWa" aria-label="Написать в WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A7.85 7.85 0 0 0 12.05 4a7.94 7.94 0 0 0-6.9 11.9L4 20l4.2-1.1a7.93 7.93 0 0 0 3.84.98h.01A7.94 7.94 0 0 0 20 11.94a7.85 7.85 0 0 0-2.4-5.62zM12.05 18.5h-.01a6.6 6.6 0 0 1-3.36-.92l-.24-.14-2.5.65.67-2.43-.16-.25a6.59 6.59 0 0 1 10.27-8.2 6.55 6.55 0 0 1 1.93 4.66 6.6 6.6 0 0 1-6.6 6.63zm3.62-4.94c-.2-.1-1.17-.58-1.35-.65-.18-.07-.31-.1-.44.1-.13.2-.5.65-.62.79-.11.13-.23.15-.42.05-.2-.1-.83-.31-1.59-.98-.59-.53-.98-1.17-1.1-1.37-.11-.2-.01-.3.09-.4.09-.09.2-.23.3-.34.1-.11.13-.2.2-.33.07-.13.03-.25-.02-.35-.05-.1-.44-1.06-.6-1.45-.16-.38-.32-.33-.44-.33l-.38-.01c-.13 0-.34.05-.52.25-.18.2-.68.66-.68 1.62 0 .96.7 1.88.8 2.01.1.13 1.38 2.11 3.34 2.96.47.2.83.32 1.11.41.47.15.9.13 1.23.08.38-.06 1.17-.48 1.34-.94.16-.46.16-.86.11-.94-.05-.08-.18-.13-.38-.23z"/></svg>
+</a>
+
+<!-- Cart overlay + panel -->
+<div class="overlay" id="overlay"></div>
+<aside class="cart-panel" id="cartPanel" aria-label="Корзина">
+  <div class="cart-head">
+    <h3>Корзина</h3>
+    <button class="cart-close" id="cartClose" aria-label="Закрыть корзину">×</button>
+  </div>
+  <div class="cart-list" id="cartList"></div>
+  <div class="cart-foot">
+    <div class="cart-total"><span>Итого</span><strong id="cartTotal">0 ₸</strong></div>
+    <button class="btn btn-primary btn-block" id="checkoutBtn" disabled>Оформить заказ</button>
+    <button class="cart-clear" id="cartClear">Очистить корзину</button>
+  </div>
+</aside>
+
+<!-- Checkout modal -->
+<div class="modal" id="checkoutModal" role="dialog" aria-modal="true" aria-labelledby="checkoutTitle">
+  <div class="modal-box">
+    <h3 id="checkoutTitle">Оформление заказа</h3>
+    <p class="lead">Заполните данные — откроется WhatsApp с готовым сообщением. Мы подтвердим и пришлём реквизиты.</p>
+    <div class="pay-note">💳 Оплата только заранее: перевод или Kaspi. Курьеры не возят наличные.</div>
+    <form id="checkoutForm" novalidate>
+      <div class="form-field">
+        <label for="fName">Имя</label>
+        <input type="text" id="fName" name="name" autocomplete="name" placeholder="Как к вам обращаться">
+        <div class="err">Введите имя (мин. 2 символа)</div>
+      </div>
+      <div class="form-row">
+        <div class="form-field">
+          <label for="fCity">Город</label>
+          <select id="fCity" name="city">
+            <option value="Алматы">Алматы</option>
+            <option value="Астана">Астана</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="fTime">Время доставки</label>
+          <input type="text" id="fTime" name="time" placeholder="Как можно скорее">
+        </div>
+      </div>
+      <div class="form-field">
+        <label for="fAddress">Адрес</label>
+        <input type="text" id="fAddress" name="address" autocomplete="street-address" placeholder="Улица, дом, квартира">
+        <div class="err">Введите адрес (мин. 5 символов)</div>
+      </div>
+      <div class="form-field">
+        <label for="fComment">Комментарий</label>
+        <textarea id="fComment" name="comment" placeholder="Пожелания по вкусу, крепости, подъезду и т.п."></textarea>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-outline" id="backToCart">Назад</button>
+        <button type="submit" class="btn btn-wa">Отправить в WhatsApp</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+/* ============================================================
+   CONSTANTS — меняйте здесь номер WhatsApp
+   Формат: только цифры, с кодом страны, без + и пробелов.
+   KZ код = 7, твой номер 7472834087 → 77472834087
+   ============================================================ */
+const WHATSAPP_NUMBER = '77472834087';
+
+/* Универсальная ссылка на WhatsApp (безопасно чистит номер) */
+function waLink(text){
+  const num = String(WHATSAPP_NUMBER).replace(/\D/g,'');
+  return `https://wa.me/${num}?text=${encodeURIComponent(text)}`;
+}
+
+/* ============================================================
+   DATA — товары. Меняйте цены, названия, описания прямо здесь.
+   ============================================================ */
+
+const HOOKAHS = [
+  { id:'h1', name:'Lunar Mini', height:'30 см', material:'Алюминий', desc:'Компактный стартовый кальян для дома и поездок', price:14500, rent:2500, badges:['Для новичков'] },
+  { id:'h2', name:'Eclipse Nano', height:'32 см', material:'Алюминий', desc:'Лёгкий кальян для новичков — соберётся за минуту', price:17900, rent:2800, badges:['Для новичков'] },
+  { id:'h3', name:'Orbit Mini', height:'38 см', material:'Алюминий', desc:'Мини-формат с полноценной тягой — бери в поездку', price:19900, rent:2800, badges:[] },
+  { id:'h4', name:'Nova Light', height:'40 см', material:'Алюминий', desc:'Средний кальян для ежедневного курения дома', price:24500, rent:3200, badges:[] },
+  { id:'h5', name:'Eclipse Classic', height:'45 см', material:'Нержавеющая сталь', desc:'Хит продаж — универсальный кальян на каждый день', price:29900, rent:3800, badges:['Хит'] },
+  { id:'h6', name:'Nova Steel', height:'48 см', material:'Нержавеющая сталь', desc:'Крепкая тяга, надёжные комплектующие — на годы', price:34500, rent:4200, badges:[] },
+  { id:'h7', name:'Nova Carbon', height:'47 см', material:'Карбон', desc:'Карбоновая отделка и эффектный внешний вид', price:39900, rent:4400, badges:['Новинка'] },
+  { id:'h8', name:'Eclipse Carbon', height:'50 см', material:'Карбон', desc:'Лёгкий вес, стильный вид, отличный дым — бери', price:44500, rent:4800, badges:['Новинка'] },
+  { id:'h9', name:'Orbit Carbon', height:'52 см', material:'Карбон', desc:'Баланс карбона и нержавейки для стабильного дыма', price:49900, rent:5200, badges:[] },
+  { id:'h10', name:'Lunar Pro', height:'58 см', material:'Нержавеющая сталь', desc:'Профессиональный кальян с широкой шахтой', price:55000, rent:5800, badges:[] },
+  { id:'h11', name:'Orbit Pro', height:'55 см', material:'Нержавеющая сталь', desc:'Стабильный дым и лёгкость тяги — выбор для профи', price:62000, rent:6000, badges:[] },
+  { id:'h12', name:'Lunar Carbon', height:'60 см', material:'Карбон', desc:'Премиальный карбон с широкой шахтой — статусный', price:69900, rent:6500, badges:['Хит'] },
+  { id:'h13', name:'Eclipse Titan', height:'65 см', material:'Нержавеющая сталь', desc:'Титановый премиум — флагман линейки Eclipse', price:85000, rent:7500, badges:['Премиум'] },
+  { id:'h14', name:'Eclipse Diamond', height:'62 см', material:'Нержавеющая сталь', desc:'Лимитированный премиум с отделкой «алмаз»', price:99000, rent:8500, badges:['Премиум'] },
+  { id:'h15', name:'Eclipse One', height:'44 см', material:'Нержавеющая сталь', desc:'Одна шахта, один вкус — простой идеальный Eclipse', price:26900, rent:3600, badges:[] }
+];
+
+const TOBACCOS = [
+  // Фруктовые
+  { id:'t1', name:'Манго', desc:'Спелое тропическое манго со сладкой ноткой', strength:3, category:'Фруктовые', prices:{25:1500,100:4500,250:9500} },
+  { id:'t2', name:'Арбуз', desc:'Свежий арбуз с лёгкой прохладой', strength:2, category:'Фруктовые', prices:{25:1500,100:4500,250:9500} },
+  { id:'t3', name:'Персик', desc:'Сочный персик с медовым послевкусием', strength:2, category:'Фруктовые', prices:{25:1600,100:4800,250:10000} },
+  { id:'t4', name:'Ананас', desc:'Плотный сладкий ананас с кислинкой', strength:3, category:'Фруктовые', prices:{25:1600,100:4800,250:10000} },
+  { id:'t5', name:'Виноград', desc:'Классический виноград с лёгким мускатом', strength:2, category:'Фруктовые', prices:{25:1400,100:4200,250:9000} },
+  { id:'t6', name:'Дыня', desc:'Спелая дыня — мягкий сладкий вкус', strength:2, category:'Фруктовые', prices:{25:1500,100:4500,250:9500} },
+  // Ягодные
+  { id:'t7', name:'Малина', desc:'Сладкая малина с лёгкой кислинкой', strength:3, category:'Ягодные', prices:{25:1600,100:4800,250:10000} },
+  { id:'t8', name:'Ежевика', desc:'Насыщенная ежевика с терпким послевкусием', strength:4, category:'Ягодные', prices:{25:1700,100:5000,250:10500} },
+  { id:'t9', name:'Клубника', desc:'Классическая клубника — сладко и просто', strength:2, category:'Ягодные', prices:{25:1500,100:4500,250:9500} },
+  { id:'t10', name:'Черника', desc:'Ягодный микс с черничной кислинкой', strength:3, category:'Ягодные', prices:{25:1600,100:4800,250:10000} },
+  { id:'t11', name:'Смородина', desc:'Чёрная смородина с лёгкой горчинкой', strength:3, category:'Ягодные', prices:{25:1600,100:4800,250:10000} },
+  // Цитрусовые
+  { id:'t12', name:'Лимон', desc:'Сочный лимон с освежающей кислинкой', strength:2, category:'Цитрусовые', prices:{25:1400,100:4200,250:9000} },
+  { id:'t13', name:'Лайм', desc:'Цедрый лайм — бодрящий и свежий', strength:2, category:'Цитрусовые', prices:{25:1400,100:4200,250:9000} },
+  { id:'t14', name:'Апельсин', desc:'Солнечный апельсин с лёгкой сладостью', strength:2, category:'Цитрусовые', prices:{25:1400,100:4200,250:9000} },
+  { id:'t15', name:'Грейпфрут', desc:'Грейпфрут с горчинкой и кислинкой', strength:3, category:'Цитрусовые', prices:{25:1500,100:4500,250:9500} },
+  // Десертные
+  { id:'t16', name:'Ваниль', desc:'Тёплая ваниль с карамельным финишем', strength:2, category:'Десертные', prices:{25:1500,100:4500,250:9500} },
+  { id:'t17', name:'Кола', desc:'Знакомый вкус колы с лёгкой цитрусовой ноткой', strength:2, category:'Десертные', prices:{25:1500,100:4500,250:9500} },
+  { id:'t18', name:'Шоколад', desc:'Плотный тёмный шоколад — десерт в дыме', strength:3, category:'Десертные', prices:{25:1600,100:4800,250:10000} },
+  { id:'t19', name:'Карамель', desc:'Сладкая карамель с ноткой сливочности', strength:2, category:'Десертные', prices:{25:1500,100:4500,250:9500} },
+  { id:'t20', name:'Кофе', desc:'Жареное кофе с шоколадным финишем', strength:4, category:'Десертные', prices:{25:1700,100:5000,250:10500} },
+  // Холодок/Мята
+  { id:'t21', name:'Ледяная мята', desc:'Максимально холодный ментоловый вкус', strength:5, category:'Холодок/Мята', prices:{25:1500,100:4500,250:9500} },
+  { id:'t22', name:'Ментол', desc:'Классический ментол — чистый холод', strength:4, category:'Холодок/Мята', prices:{25:1500,100:4500,250:9500} },
+  { id:'t23', name:'Холодный виноград', desc:'Виноград с сильным холодком', strength:4, category:'Холодок/Мята', prices:{25:1600,100:4800,250:10000} },
+  // Пряные/Микс
+  { id:'t24', name:'Пряный чай', desc:'Чайный микс с кардамоном и корицей', strength:4, category:'Пряные/Микс', prices:{25:1700,100:5000,250:10500} },
+  { id:'t25', name:'Восточный микс', desc:'Пряная смесь с нотками восточных специй', strength:4, category:'Пряные/Микс', prices:{25:1700,100:5000,250:10500} },
+  // Классика
+  { id:'t26', name:'Двойное яблоко', desc:'Легендарный вкус — яблоко с анисом', strength:3, category:'Классика', prices:{25:1400,100:4200,250:9000} },
+  { id:'t27', name:'Табак классик', desc:'Чистый табачный вкус без добавок', strength:5, category:'Классика', prices:{25:1300,100:3800,250:8000} }
+];
+
+const ACCESSORIES = [
+  { id:'a1', name:'Кокосовый уголь 1 кг', desc:'Кубики, 25 мм, горят 1–1.5 часа', price:2800, icon:'coal' },
+  { id:'a2', name:'Кокосовый уголь 0.5 кг', desc:'Кубики, 25 мм, стартовый объём', price:1600, icon:'coal' },
+  { id:'a3', name:'Колба универсальная', desc:'Стекло, подходит к большинству моделей', price:8500, icon:'flask' },
+  { id:'a4', name:'Силиконовая чаша', desc:'Не нагревается, удобно чистить', price:3800, icon:'bowl' },
+  { id:'a5', name:'Глиняная чаша', desc:'Классика — держит температуру', price:2500, icon:'bowl' },
+  { id:'a6', name:'Фанел-чаша', desc:'Жаростойкая, для плотного табака', price:4500, icon:'bowl' },
+  { id:'a7', name:'Шланг силиконовый', desc:'Лёгкий, гибкий, не передаёт запах', price:3200, icon:'hose' },
+  { id:'a8', name:'Мундштуки (10 шт)', desc:'Одноразовые, сменный комплект', price:1800, icon:'mouth' },
+  { id:'a9', name:'Щипцы для угля', desc:'Нержавейка, эргономичные', price:2200, icon:'tongs' },
+  { id:'a10', name:'Фольга 50 м', desc:'Толстая, широкая, 100% алюминий', price:1400, icon:'foil' },
+  { id:'a11', name:'Калауд Heat', desc:'Металлическая чаша-теплораспределитель', price:5800, icon:'kaloud' },
+  { id:'a12', name:'Ёршик для шахты', desc:'Для глубокой чистки шахты', price:900, icon:'brush' },
+  { id:'a13', name:'Чехол для кальяна', desc:'Плотный, с карманами для аксессуаров', price:4800, icon:'case' }
+];
+
+const COMBOS = [
+  { id:'c0', name:'Быстрый дым (Аренда)', comp:'Кальян + 2 табака + уголь на 24 часа', desc:'Всё включено для вечера без покупки оборудования', price:7900, save:20, badges:['Аренда','Хит'] },
+  { id:'c1', name:'Старт Сет', comp:'Кальян Lunar Mini + 1 табак + уголь (0.5 кг)', desc:'Самый бюджетный комплект для собственного пользования', price:16900, save:15, badges:['Хит'] },
+  { id:'c2', name:'Домашний Классик', comp:'Кальян Eclipse Classic + 2 табака + уголь (1 кг)', desc:'Надёжный кальян из нержавейки со всем необходимым', price:32900, save:12, badges:[] },
+  { id:'c3', name:'Для двоих', comp:'Кальян Orbit Mini + 2 табака + уголь + 2 мундштука', desc:'Уютный компактный набор на двоих', price:22900, save:10, badges:[] },
+  { id:'c4', name:'Вечеринка', comp:'Кальян Nova Steel + 3 табака + уголь + 5 мундштуков', desc:'Крепкая стальная модель для регулярных посиделок с друзьями', price:38900, save:18, badges:[] },
+  { id:'c5', name:'Карбон Про', comp:'Кальян Eclipse Carbon + 4 табака + калауд + уголь', desc:'Лёгкая модель из карбона в полной комплектации', price:49900, save:22, badges:['Премиум'] }
+];
+
+const RENTAL_EXTRAS = [
+  { id:'r1', name:'Доп. шланг', desc:'Сменный, для аренды', price:1500, icon:'hose' },
+  { id:'r2', name:'Доп. колба', desc:'Запасная, для аренды', price:2800, icon:'flask' },
+  { id:'r3', name:'Табак к аренде', desc:'25 г на выбор', price:2900, icon:'bowl' },
+  { id:'r4', name:'Уголь к аренде', desc:'0.5 кг кокосового', price:2000, icon:'coal' }
+];
+
+const CATEGORY_COLORS = {
+  'Фруктовые':['#FF6A1A','#F5B041'],
+  'Ягодные':['#B3261E','#FF6A1A'],
+  'Цитрусовые':['#F5B041','#FFD24A'],
+  'Десертные':['#8B4513','#D2691E'],
+  'Холодок/Мята':['#3E7D5A','#7FB89A'],
+  'Пряные/Микс':['#B3261E','#8B0000'],
+  'Классика':['#654321','#A0522D']
+};
+
+/* ============================================================
+   HELPERS
+   ============================================================ */
+const fmt = n => Math.round(n).toLocaleString('ru-RU').replace(/\u00A0/g,' ');
+const $ = s => document.querySelector(s);
+const $$ = s => Array.from(document.querySelectorAll(s));
+
+const rentPrice = (base, days) => {
+  if (days === 1) return base;
+  if (days === 3) return Math.round(base * 2.5);
+  if (days === 7) return Math.round(base * 5);
+  return base;
+};
+
+const rentLabel = days => ({1:'1 сутки',3:'3 дня',7:'7 дней'}[days] || '1 сутки');
+
+/* ============================================================
+   STATE
+   ============================================================ */
+let cart = [];
+let currentTab = 'hookahs';
+let searchQuery = '';
+let sortMode = 'default';
+let currentCity = 'Алматы';
+const selectedTerms = {};
+const selectedGrams = {};
+
+/* ============================================================
+   LOCALSTORAGE
+   ============================================================ */
+function loadState(){
+  try{
+    cart = JSON.parse(localStorage.getItem('eclipse_cart') || '[]');
+    if (!Array.isArray(cart)) cart = [];
+  }catch(e){ cart = []; }
+  try{
+    const c = localStorage.getItem('eclipse_city');
+    if (c) currentCity = c;
+  }catch(e){}
+}
+function saveCart(){ localStorage.setItem('eclipse_cart', JSON.stringify(cart)); }
+function saveCity(){ localStorage.setItem('eclipse_city', currentCity); }
+
+/* ============================================================
+   AGE GATE
+   ============================================================ */
+(function initAgeGate(){
+  const gate = $('#ageGate');
+  if (localStorage.getItem('eclipse_age_ok') === '1') return;
+  gate.classList.add('active');
+  document.body.classList.add('locked');
+})();
+
+$('#ageYes')?.addEventListener('click', () => {
+  localStorage.setItem('eclipse_age_ok','1');
+  $('#ageGate').classList.remove('active');
+  document.body.classList.remove('locked');
+});
+$('#ageNo')?.addEventListener('click', () => {
+  window.location.href = 'https://www.google.com';
+});
+
+/* ============================================================
+   NAV TOGGLE
+   ============================================================ */
+const navToggle = $('#navToggle');
+const mainNav = $('#mainNav');
+navToggle?.addEventListener('click', () => {
+  const open = mainNav.classList.toggle('open');
+  navToggle.setAttribute('aria-expanded', String(open));
+});
+$$('.nav a').forEach(a => a.addEventListener('click', () => {
+  mainNav.classList.remove('open');
+  navToggle?.setAttribute('aria-expanded','false');
+}));
+
+/* ============================================================
+   CITY
+   ============================================================ */
+function setCity(city){
+  currentCity = city;
+  saveCity();
+  $$('.city-switch button').forEach(b => {
+    b.classList.toggle('active', b.dataset.city === city);
+  });
+  const fCity = $('#fCity');
+  if (fCity) fCity.value = city;
+}
+$$('.city-switch').forEach(cs => {
+  cs.addEventListener('click', e => {
+    const b = e.target.closest('button[data-city]');
+    if (!b) return;
+    setCity(b.dataset.city);
+  });
+});
+
+/* ============================================================
+   SVG ICONS
+   ============================================================ */
+function hookahSVG(){
+  return `
+  <svg class="hookah" viewBox="0 0 120 160" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <ellipse cx="60" cy="140" rx="32" ry="8" fill="#000" opacity=".45"/>
+    <path d="M35 130 Q35 100 60 100 Q85 100 85 130 Z" fill="url(#gFlask)" stroke="#F5B041" stroke-width="1.5"/>
+    <path d="M38 125 Q38 112 60 112 Q82 112 82 125 Z" fill="#F5B041" opacity=".35"/>
+    <rect x="56" y="46" width="8" height="58" rx="2" fill="url(#gFire)"/>
+    <ellipse cx="60" cy="44" rx="22" ry="9" fill="#2A241F" stroke="#F5B041" stroke-width="1.5"/>
+    <ellipse cx="60" cy="41" rx="18" ry="6.5" fill="url(#gFire)"/>
+    <circle cx="55" cy="40" r="2.5" fill="#FF6A1A"/>
+    <circle cx="62" cy="39" r="2.5" fill="#FF6A1A"/>
+    <circle cx="59" cy="42" r="2" fill="#FF6A1A"/>
+    <path d="M78 76 Q102 92 92 122" stroke="#F5B041" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <circle cx="92" cy="124" r="4" fill="#FF6A1A"/>
+  </svg>`;
+}
+function flavorSVG(){
+  return `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 2c-.5 2-1.5 3.5-3 4.5C8.5 7.8 7 8.5 6 10c-2 3-1.5 7 1.5 9.5 2.5 2 6 2.5 8.5 1 3-1.5 4.5-5 3.5-8.5-.7-2.3-2-4-3.5-5.5C15 5 14 3.5 13.5 2z"/></svg>`;
+}
+function comboIcon(){
+  return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>`;
+}
+function accIcon(type){
+  const m = {
+    coal:'<path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M19.07 4.93 4.93 19.07"/>',
+    flask:'<path d="M9 3h6v6l4 8a2 2 0 0 1-1.8 3H6.8A2 2 0 0 1 5 17l4-8V3z"/><path d="M9 9h6"/>',
+    bowl:'<path d="M4 12c0-4 4-7 8-7s8 3 8 7-4 5-8 5-8-1-8-5z"/><path d="M12 17v4"/>',
+    hose:'<path d="M3 3c8 2 10 8 10 14"/><circle cx="13" cy="19" r="2"/>',
+    mouth:'<path d="M6 6h12v4a6 6 0 0 1-12 0V6z"/><path d="M9 20h6"/>',
+    tongs:'<path d="M6 3 18 21M18 3 6 21"/><circle cx="6" cy="3" r="2"/><circle cx="18" cy="3" r="2"/>',
+    foil:'<rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 12h16M12 4v16"/>',
+    kaloud:'<path d="M3 15h18l-2-5H5l-2 5z"/><path d="M6 10V7a6 6 0 0 1 12 0v3"/>',
+    brush:'<rect x="8" y="14" width="8" height="7" rx="1"/><path d="M9 14V9a3 3 0 0 1 6 0v5"/>',
+    case:'<rect x="3" y="7" width="18" height="14" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>'
+  };
+  return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${m[type] || m.bowl}</svg>`;
+}
+
+/* ============================================================
+   RENDER
+   ============================================================ */
+function filterBySearch(items){
+  if (!searchQuery) return items;
+  const q = searchQuery.toLowerCase();
+  return items.filter(it => it.name.toLowerCase().includes(q) || (it.desc||'').toLowerCase().includes(q));
+}
+function sortItems(items){
+  const arr = [...items];
+  if (sortMode === 'price-asc') arr.sort((a,b)=> sortPrice(a) - sortPrice(b));
+  if (sortMode === 'price-desc') arr.sort((a,b)=> sortPrice(b) - sortPrice(a));
+  return arr;
+}
+function sortPrice(it){
+  if (it._type === 'tobacco') return it.prices[25];
+  return it.price;
+}
+
+function renderCatalog(){
+  const grid = $('#productGrid');
+  if (!grid) return;
+  let html = '';
+
+  if (currentTab === 'hookahs'){
+    const items = sortItems(filterBySearch(HOOKAHS));
+    html = items.length ? items.map(renderHookahCard).join('') : emptyState('Кальяны не найдены');
+  } else if (currentTab === 'tobacco'){
+    const items = sortItems(filterBySearch(TOBACCOS));
+    if (!items.length) html = emptyState('Вкусы не найдены');
+    else {
+      const grouped = {};
+      items.forEach(t => { (grouped[t.category] = grouped[t.category] || []).push(t); });
+      Object.keys(grouped).forEach(cat => {
+        html += `<h3 class="sub-title" style="grid-column:1/-1">${cat}</h3>`;
+        html += grouped[cat].map(renderTobaccoCard).join('');
+      });
+    }
+  } else if (currentTab === 'combos'){
+    const items = sortItems(filterBySearch(COMBOS));
+    html = items.length ? items.map(renderComboCard).join('') : emptyState('Комбо не найдены');
+  } else if (currentTab === 'rental'){
+    const items = sortItems(filterBySearch(HOOKAHS));
+    if (!items.length) html = emptyState('Ничего не найдено');
+    else {
+      html += items.map(renderRentalCard).join('');
+      html += `<h3 class="sub-title" style="grid-column:1/-1">Дополнительно к аренде</h3>`;
+      html += RENTAL_EXTRAS.map(renderAccessoryCard).join('');
+    }
+  } else if (currentTab === 'accessories'){
+    const items = sortItems(filterBySearch(ACCESSORIES));
+    html = items.length ? items.map(renderAccessoryCard).join('') : emptyState('Аксессуары не найдены');
+  }
+
+  grid.innerHTML = html;
+}
+
+function emptyState(text){
+  return `<div class="empty"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><div>${text}</div></div>`;
+}
+
+function badgesHTML(arr){
+  if (!arr || !arr.length) return '';
+  return `<div class="badges">${arr.map(b => {
+    let cls = 'novice';
+    if (b === 'Хит') cls = 'hit';
+    if (b === 'Новинка') cls = 'new';
+    if (b === 'Премиум') cls = 'new';
+    if (b === 'Аренда') cls = 'new';
+    return `<span class="badge ${cls}">${b}</span>`;
+  }).join('')}</div>`;
+}
+
+function renderHookahCard(h){
+  return `
+  <article class="card">
+    <div class="card-media">${badgesHTML(h.badges)}${hookahSVG()}</div>
+    <div class="card-body">
+      <h3>${h.name}</h3>
+      <div class="specs"><span>${h.height}</span><span>${h.material}</span></div>
+      <p class="desc">${h.desc}</p>
+      <div class="price-box">
+        <div class="price">${fmt(h.price)} ₸</div>
+        <div class="price-sub">Аренда: <b>${fmt(h.rent)} ₸</b> / сутки</div>
+      </div>
+      <div class="actions">
+        <button class="btn btn-primary btn-sm" data-add="hookah" data-id="${h.id}" data-mode="sale">Купить</button>
+        <button class="btn btn-outline btn-sm" data-add="hookah" data-id="${h.id}" data-mode="rent">Арендовать</button>
+      </div>
+      <button class="quick-order" data-quick="hookah" data-id="${h.id}" data-mode="sale">⚡ Заказать сразу</button>
+    </div>
+  </article>`;
+}
+
+function renderTobaccoCard(t){
+  const c = CATEGORY_COLORS[t.category] || ['#FF6A1A','#F5B041'];
+  const g = selectedGrams[t.id] || 25;
+  const dots = Array.from({length:5},(_,i)=>`<i class="${i < t.strength ? 'on':''}"></i>`).join('');
+  const prices = [25,100,250].map(gr => `
+    <button class="gram-btn ${g===gr?'active':''}" data-gram="${t.id}|${gr}">
+      ${gr} г<small>${fmt(t.prices[gr])} ₸</small>
+    </button>`).join('');
+  return `
+  <article class="card tobacco-card">
+    <div class="card-media">
+      <div class="flavor-orb" style="--c1:${c[0]};--c2:${c[1]}">${flavorSVG()}</div>
+    </div>
+    <div class="card-body">
+      <h3>${t.name}</h3>
+      <p class="desc">${t.desc}</p>
+      <div class="strength">Крепость: <span class="strength-dots">${dots}</span></div>
+      <div class="gram-options">${prices}</div>
+      <div class="actions">
+        <button class="btn btn-primary btn-sm" data-add="tobacco" data-id="${t.id}">В корзину · ${fmt(t.prices[g])} ₸</button>
+      </div>
+      <button class="quick-order" data-quick="tobacco" data-id="${t.id}">⚡ Заказать сразу</button>
+    </div>
+  </article>`;
+}
+
+function renderComboCard(c){
+  return `
+  <article class="card combo-card">
+    <div class="card-media">
+      ${badgesHTML(c.badges)}
+      ${c.save > 0 ? `<div class="save-badge">Экономия ${c.save}%</div>` : ''}
+      <div class="combo-icon">${comboIcon()}</div>
+    </div>
+    <div class="card-body">
+      <h3>${c.name}</h3>
+      <p class="combo-comp"><b>Состав:</b> ${c.comp}</p>
+      <p class="desc">${c.desc}</p>
+      <div class="price-box">
+        <div class="price">${fmt(c.price)} ₸</div>
+      </div>
+      <div class="actions" style="grid-template-columns:1fr">
+        <button class="btn btn-primary btn-sm" data-add="combo" data-id="${c.id}">В корзину</button>
+      </div>
+      <button class="quick-order" data-quick="combo" data-id="${c.id}">⚡ Заказать сразу</button>
+    </div>
+  </article>`;
+}
+
+function renderAccessoryCard(a){
+  return `
+  <article class="card acc-card">
+    <div class="card-media">
+      <div class="acc-icon">${accIcon(a.icon)}</div>
+    </div>
+    <div class="card-body">
+      <h3>${a.name}</h3>
+      <p class="desc">${a.desc}</p>
+      <div class="price-box">
+        <div class="price">${fmt(a.price)} ₸</div>
+      </div>
+      <div class="actions" style="grid-template-columns:1fr">
+        <button class="btn btn-primary btn-sm" data-add="accessory" data-id="${a.id}">В корзину</button>
+      </div>
+    </div>
+  </article>`;
+}
+
+function renderRentalCard(h){
+  const g = selectedTerms[h.id] || 1;
+  const rp = rentPrice(h.rent, g);
+  return `
+  <article class="card">
+    <div class="card-media">${badgesHTML(h.badges)}${hookahSVG()}</div>
+    <div class="card-body">
+      <h3>${h.name}</h3>
+      <div class="specs"><span>${h.height}</span><span>${h.material}</span></div>
+      <p class="desc">${h.desc}</p>
+      <div class="term-pills">
+        <button class="term-btn ${g===1?'active':''}" data-term="${h.id}|1">1 сутки<small>${fmt(h.rent)} ₸</small></button>
+        <button class="term-btn ${g===3?'active':''}" data-term="${h.id}|3">3 дня<small>-17%</small></button>
+        <button class="term-btn ${g===7?'active':''}" data-term="${h.id}|7">7 дней<small>-29%</small></button>
+      </div>
+      <div class="price-box">
+        <div class="price">${fmt(rp)} ₸ <span style="font-size:12px;color:var(--dim);font-family:Inter;font-weight:400">/ ${rentLabel(g)}</span></div>
+        <div class="price-sub">Залог: от ${fmt(15000 + h.rent*2)} ₸ (возвращается)</div>
+      </div>
+      <div class="actions" style="grid-template-columns:1fr">
+        <button class="btn btn-primary btn-sm" data-add="rental" data-id="${h.id}" data-term="${g}">Арендовать</button>
+      </div>
+      <button class="quick-order" data-quick="rental" data-id="${h.id}" data-term="${g}">⚡ Заказать сразу</button>
+    </div>
+  </article>`;
+}
+
+/* ============================================================
+   CATALOG EVENTS
+   ============================================================ */
+$('#tabs')?.addEventListener('click', e => {
+  const btn = e.target.closest('.tab');
+  if (!btn) return;
+  currentTab = btn.dataset.tab;
+  $$('.tab').forEach(t => {
+    t.classList.toggle('active', t === btn);
+    t.setAttribute('aria-selected', String(t === btn));
+  });
+  renderCatalog();
+});
+
+$('#searchInput')?.addEventListener('input', e => {
+  searchQuery = e.target.value.trim();
+  renderCatalog();
+});
+
+$('#sortSelect')?.addEventListener('change', e => {
+  sortMode = e.target.value;
+  renderCatalog();
+});
+
+$('#productGrid')?.addEventListener('click', e => {
+  const gramBtn = e.target.closest('.gram-btn');
+  if (gramBtn){
+    const [id, g] = gramBtn.dataset.gram.split('|');
+    selectedGrams[id] = parseInt(g,10);
+    renderCatalog();
+    return;
+  }
+  const termBtn = e.target.closest('.term-btn');
+  if (termBtn){
+    const [id, g] = termBtn.dataset.term.split('|');
+    selectedTerms[id] = parseInt(g,10);
+    renderCatalog();
+    return;
+  }
+  const addBtn = e.target.closest('[data-add]');
+  if (addBtn){
+    const type = addBtn.dataset.add;
+    const id = addBtn.dataset.id;
+    if (type === 'hookah') addHookah(id, addBtn.dataset.mode);
+    if (type === 'tobacco') addTobacco(id, selectedGrams[id] || 25);
+    if (type === 'combo') addCombo(id);
+    if (type === 'accessory') addAccessory(id);
+    if (type === 'rental') addRental(id, parseInt(addBtn.dataset.term,10) || 1);
+    return;
+  }
+  const qBtn = e.target.closest('[data-quick]');
+  if (qBtn){
+    quickOrder(qBtn.dataset.quick, qBtn.dataset.id, qBtn.dataset.mode, qBtn.dataset.term);
+  }
+});
+
+/* ============================================================
+   CART
+   ============================================================ */
+function cartKey(productId, type, variant){
+  return variant != null ? `${productId}|${type}|${variant}` : `${productId}|${type}`;
+}
+
+function findInCart(key){ return cart.find(i => i.key === key); }
+
+function upsertCart(item){
+  const existing = findInCart(item.key);
+  if (existing){
+    existing.qty += item.qty;
+  } else {
+    cart.push(item);
+  }
+  saveCart();
+  renderCart();
+  openCart();
+}
+
+function addHookah(id, mode){
+  const h = HOOKAHS.find(x => x.id === id);
+  if (!h) return;
+  if (mode === 'sale'){
+    upsertCart({
+      key: cartKey(h.id, 'sale'),
+      productId: h.id,
+      type: 'sale',
+      name: h.name,
+      variantLabel: 'Покупка',
+      unitPrice: h.price,
+      basePrice: h.price,
+      qty: 1
+    });
+  } else {
+    addRental(id, 1);
+  }
+}
+
+function addRental(id, days){
+  const h = HOOKAHS.find(x => x.id === id);
+  if (!h) return;
+  upsertCart({
+    key: cartKey(h.id, 'rent', days),
+    productId: h.id,
+    type: 'rent',
+    name: h.name,
+    variantLabel: 'Аренда',
+    unitPrice: rentPrice(h.rent, days),
+    basePrice: h.rent,
+    days: days,
+    qty: 1
+  });
+}
+
+function addTobacco(id, grams){
+  const t = TOBACCOS.find(x => x.id === id);
+  if (!t) return;
+  upsertCart({
+    key: cartKey(t.id, 'tobacco', grams),
+    productId: t.id,
+    type: 'tobacco',
+    name: t.name,
+    variantLabel: `${grams} г`,
+    unitPrice: t.prices[grams],
+    basePrice: t.prices[grams],
+    grams: grams,
+    qty: 1
+  });
+}
+
+function addCombo(id){
+  const c = COMBOS.find(x => x.id === id);
+  if (!c) return;
+  upsertCart({
+    key: cartKey(c.id, 'combo'),
+    productId: c.id,
+    type: 'combo',
+    name: c.name,
+    variantLabel: 'Комбо',
+    unitPrice: c.price,
+    basePrice: c.price,
+    qty: 1
+  });
+}
+
+function addAccessory(id){
+  const a = [...ACCESSORIES, ...RENTAL_EXTRAS].find(x => x.id === id);
+  if (!a) return;
+  upsertCart({
+    key: cartKey(a.id, 'accessory'),
+    productId: a.id,
+    type: 'accessory',
+    name: a.name,
+    variantLabel: 'Аксессуар',
+    unitPrice: a.price,
+    basePrice: a.price,
+    qty: 1
+  });
+}
+
+function changeCartVariant(key, kind, value){
+  const item = findInCart(key);
+  if (!item) return;
+  if (kind === 'grams'){
+    const t = TOBACCOS.find(x => x.id === item.productId);
+    if (!t) return;
+    const newKey = cartKey(t.id, 'tobacco', value);
+    const clash = findInCart(newKey);
+    if (clash && clash !== item){
+      clash.qty += item.qty;
+      cart = cart.filter(i => i !== item);
+    } else {
+      item.key = newKey;
+      item.grams = value;
+      item.variantLabel = `${value} г`;
+      item.unitPrice = t.prices[value];
+      item.basePrice = t.prices[value];
+    }
+  } else if (kind === 'days'){
+    const h = HOOKAHS.find(x => x.id === item.productId);
+    if (!h) return;
+    const newKey = cartKey(h.id, 'rent', value);
+    const clash = findInCart(newKey);
+    if (clash && clash !== item){
+      clash.qty += item.qty;
+      cart = cart.filter(i => i !== item);
+    } else {
+      item.key = newKey;
+      item.days = value;
+      item.unitPrice = rentPrice(h.rent, value);
+    }
+  }
+  saveCart();
+  renderCart();
+}
+
+function incQty(key){
+  const it = findInCart(key);
+  if (!it) return;
+  it.qty += 1;
+  saveCart();
+  renderCart();
+}
+function decQty(key){
+  const it = findInCart(key);
+  if (!it) return;
+  it.qty -= 1;
+  if (it.qty <= 0) cart = cart.filter(i => i.key !== key);
+  saveCart();
+  renderCart();
+}
+function removeItem(key){
+  cart = cart.filter(i => i.key !== key);
+  saveCart();
+  renderCart();
+}
+
+function totalPrice(){
+  return cart.reduce((s,i) => s + i.unitPrice * i.qty, 0);
+}
+
+function renderCart(){
+  const list = $('#cartList');
+  const totalEl = $('#cartTotal');
+  const countEl = $('#cartCount');
+  const checkoutBtn = $('#checkoutBtn');
+  if (!list) return;
+
+  const totalQty = cart.reduce((s,i)=> s + i.qty, 0);
+  countEl.textContent = totalQty;
+  countEl.classList.toggle('show', totalQty > 0);
+
+  if (!cart.length){
+    list.innerHTML = `<div class="cart-empty"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><div>Корзина пуста</div></div>`;
+    totalEl.textContent = '0 ₸';
+    checkoutBtn.disabled = true;
+    return;
+  }
+
+  list.innerHTML = cart.map(item => {
+    let opts = '';
+    if (item.type === 'tobacco'){
+      const t = TOBACCOS.find(x => x.id === item.productId);
+      if (t){
+        opts = `<div class="ci-opts">${[25,100,250].map(gr => 
+          `<button class="ci-opt ${item.grams===gr?'active':''}" data-cart-opt="${item.key}|grams|${gr}">${gr} г</button>`
+        ).join('')}</div>`;
+      }
+    }
+    if (item.type === 'rent'){
+      opts = `<div class="ci-opts">${[1,3,7].map(d =>
+        `<button class="ci-opt ${item.days===d?'active':''}" data-cart-opt="${item.key}|days|${d}">${rentLabel(d)}</button>`
+      ).join('')}</div>`;
+    }
+    const label = item.type === 'rent' ? `Аренда · ${rentLabel(item.days)}` :
+                  item.type === 'tobacco' ? item.variantLabel :
+                  item.type === 'sale' ? 'Покупка' :
+                  item.type === 'combo' ? 'Комбо' : 'Аксессуар';
+    return `
+    <div class="ci" data-key="${item.key}">
+      <div class="ci-top">
+        <div>
+          <div class="ci-name">${item.name}</div>
+          <div class="ci-variant">${label}</div>
+        </div>
+        <button class="ci-remove" data-cart-remove="${item.key}" aria-label="Удалить">×</button>
+      </div>
+      ${opts}
+      <div class="ci-bottom">
+        <div class="qty">
+          <button data-cart-dec="${item.key}" aria-label="Уменьшить">−</button>
+          <span>${item.qty}</span>
+          <button data-cart-inc="${item.key}" aria-label="Увеличить">+</button>
+        </div>
+        <div class="ci-price">${fmt(item.unitPrice * item.qty)} ₸</div>
+      </div>
+    </div>`;
+  }).join('');
+
+  totalEl.textContent = fmt(totalPrice()) + ' ₸';
+  checkoutBtn.disabled = false;
+}
+
+$('#cartList')?.addEventListener('click', e => {
+  const inc = e.target.closest('[data-cart-inc]');
+  if (inc) return incQty(inc.dataset.cartInc);
+  const dec = e.target.closest('[data-cart-dec]');
+  if (dec) return decQty(dec.dataset.cartDec);
+  const rem = e.target.closest('[data-cart-remove]');
+  if (rem) return removeItem(rem.dataset.cartRemove);
+  const opt = e.target.closest('[data-cart-opt]');
+  if (opt){
+    const [key, kind, value] = opt.dataset.cartOpt.split('|');
+    changeCartVariant(key, kind, parseInt(value,10));
+  }
+});
+
+$('#cartClear')?.addEventListener('click', () => {
+  if (!cart.length) return;
+  if (confirm('Очистить корзину?')){
+    cart = [];
+    saveCart();
+    renderCart();
+  }
+});
+
+/* Cart open/close */
+const cartPanel = $('#cartPanel');
+const overlay = $('#overlay');
+function openCart(){
+  cartPanel.classList.add('open');
+  overlay.classList.add('open');
+  document.body.classList.add('locked');
+}
+function closeCart(){
+  cartPanel.classList.remove('open');
+  overlay.classList.remove('open');
+  document.body.classList.remove('locked');
+}
+$('#cartBtn')?.addEventListener('click', openCart);
+$('#cartClose')?.addEventListener('click', closeCart);
+overlay?.addEventListener('click', () => {
+  closeCart();
+  closeCheckout();
+});
+
+/* ============================================================
+   CHECKOUT
+   ============================================================ */
+const checkoutModal = $('#checkoutModal');
+const checkoutForm = $('#checkoutForm');
+
+$('#checkoutBtn')?.addEventListener('click', () => {
+  if (!cart.length) return;
+  closeCart();
+  openCheckout();
+});
+
+function openCheckout(){
+  checkoutModal.classList.add('open');
+  document.body.classList.add('locked');
+  const fCity = $('#fCity');
+  if (fCity) fCity.value = currentCity;
+}
+function closeCheckout(){
+  checkoutModal.classList.remove('open');
+  if (!cartPanel.classList.contains('open')) document.body.classList.remove('locked');
+}
+
+$('#backToCart')?.addEventListener('click', () => {
+  closeCheckout();
+  openCart();
+});
+
+function setFieldError(name, msg){
+  const input = checkoutForm.querySelector(`[name="${name}"]`);
+  if (!input) return;
+  const field = input.closest('.form-field');
+  const err = field.querySelector('.err');
+  if (msg){ field.classList.add('has-err'); if (err) err.textContent = msg; }
+  else { field.classList.remove('has-err'); }
+}
+
+checkoutForm?.addEventListener('input', e => {
+  const n = e.target.name;
+  if (n) setFieldError(n, '');
+});
+
+checkoutForm?.addEventListener('submit', e => {
+  e.preventDefault();
+  const name = checkoutForm.name.value.trim();
+  const city = checkoutForm.city.value;
+  const address = checkoutForm.address.value.trim();
+  const time = checkoutForm.time.value.trim() || 'Как можно скорее';
+  const comment = checkoutForm.comment.value.trim();
+
+  let ok = true;
+  if (name.length < 2){ setFieldError('name','Введите имя (мин. 2 символа)'); ok = false; }
+  if (address.length < 5){ setFieldError('address','Введите адрес (мин. 5 символов)'); ok = false; }
+  if (!ok) return;
+
+  const msg = buildOrderMessage({ name, city, address, time, comment });
+  window.open(waLink(msg), '_blank');
+
+  cart = [];
+  saveCart();
+  renderCart();
+  checkoutForm.reset();
+  closeCheckout();
+});
+
+function buildOrderMessage({ name, city, address, time, comment }){
+  const lines = [];
+  lines.push('🖤 Новый заказ Eclipse Store');
+  lines.push('');
+  lines.push(`👤 Имя: ${name}`);
+  lines.push(`📍 Город: ${city}`);
+  lines.push(`🏠 Адрес: ${address}`);
+  lines.push(`⏰ Время: ${time}`);
+  lines.push('');
+  lines.push('📦 Состав:');
+  cart.forEach((it, i) => {
+    let label = it.name;
+    if (it.type === 'rent') label += ` (аренда, ${rentLabel(it.days)})`;
+    if (it.type === 'tobacco') label += ` (${it.grams} г)`;
+    if (it.type === 'combo') label += ` (комбо)`;
+    if (it.type === 'sale') label += ` (покупка)`;
+    lines.push(`${i+1}. ${label} × ${it.qty} — ${fmt(it.unitPrice * it.qty)} ₸`);
+  });
+  lines.push('');
+  lines.push(`💰 Итого: ${fmt(totalPrice())} ₸`);
+  if (comment){ lines.push(''); lines.push(`💬 Комментарий: ${comment}`); }
+  lines.push('');
+  lines.push('Оплата: перевод / Kaspi (обсудим в чате).');
+  return lines.join('\n');
+}
+
+/* ============================================================
+   QUICK ORDER
+   ============================================================ */
+function quickOrder(type, id, mode, term){
+  let productName = '';
+  let productPrice = 0;
+  let label = '';
+
+  if (type === 'hookah'){
+    const h = HOOKAHS.find(x => x.id === id);
+    if (!h) return;
+    productName = h.name;
+    productPrice = h.price;
+    label = 'покупка';
+  } else if (type === 'rental'){
+    const h = HOOKAHS.find(x => x.id === id);
+    if (!h) return;
+    const days = parseInt(term,10) || 1;
+    productName = h.name;
+    productPrice = rentPrice(h.rent, days);
+    label = `аренда, ${rentLabel(days)}`;
+  } else if (type === 'tobacco'){
+    const t = TOBACCOS.find(x => x.id === id);
+    if (!t) return;
+    const g = selectedGrams[id] || 25;
+    productName = t.name;
+    productPrice = t.prices[g];
+    label = `${g} г`;
+  } else if (type === 'combo'){
+    const c = COMBOS.find(x => x.id === id);
+    if (!c) return;
+    productName = c.name;
+    productPrice = c.price;
+    label = 'комбо';
+  }
+
+  const msg = [
+    '🖤 Здравствуйте! Хочу заказать в Eclipse Store:',
+    '',
+    `📦 ${productName} (${label}) — ${fmt(productPrice)} ₸`,
+    '',
+    `📍 Город: ${currentCity}`,
+    'Подскажите, как оформить доставку?'
+  ].join('\n');
+
+  window.open(waLink(msg), '_blank');
+}
+
+/* ============================================================
+   WHATSAPP BUTTONS
+   ============================================================ */
+function openWaGeneral(){
+  const msg = `🖤 Здравствуйте! Пишу с сайта Eclipse Store. Хочу узнать про доставку кальяна в ${currentCity}.`;
+  window.open(waLink(msg), '_blank');
+}
+['#hdrWa','#heroWa','#footWa','#floatWa'].forEach(sel => {
+  const el = $(sel);
+  if (el) el.addEventListener('click', e => { e.preventDefault(); openWaGeneral(); });
+});
+
+/* ============================================================
+   FAQ ACCORDION
+   ============================================================ */
+$('#faqList')?.addEventListener('click', e => {
+  const q = e.target.closest('.faq-q');
+  if (!q) return;
+  const item = q.closest('.faq-item');
+  const body = item.querySelector('.faq-a');
+  const isOpen = item.classList.contains('open');
+  $$('.faq-item').forEach(it => {
+    it.classList.remove('open');
+    const a = it.querySelector('.faq-a');
+    if (a) a.style.maxHeight = '0px';
+    it.querySelector('.faq-q').setAttribute('aria-expanded','false');
+  });
+  if (!isOpen){
+    item.classList.add('open');
+    q.setAttribute('aria-expanded','true');
+    body.style.maxHeight = body.scrollHeight + 'px';
+  }
+});
+
+/* ============================================================
+   REVEAL ON SCROLL
+   ============================================================ */
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(en => {
+    if (en.isIntersecting){
+      en.target.classList.add('visible');
+      revealObserver.unobserve(en.target);
+    }
+  });
+}, { threshold: 0.12 });
+function observeReveals(){
+  $$('.reveal').forEach(el => revealObserver.observe(el));
+}
+
+/* ============================================================
+   BACKGROUND PARTICLES — звёзды + тлеющие угольки + падающие звёзды
+   ============================================================ */
+(function initBackgroundParticles(){
+  const canvas = document.getElementById('bgCanvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+  let W = 0, H = 0;
+  const stars = [];
+  const embers = [];
+  const shooting = [];
+  let STAR_COUNT = 0, EMBER_COUNT = 0;
+
+  function isMobile(){ return window.innerWidth < 768; }
+
+  function makeStar(){
+    return {
+      x: Math.random() * W,
+      y: Math.random() * H,
+      r: 0.3 + Math.random() * 1.3,
+      base: 0.15 + Math.random() * 0.55,
+      speed: 0.004 + Math.random() * 0.02,
+      phase: Math.random() * Math.PI * 2
+    };
+  }
+
+  function makeEmber(reset){
+    return {
+      x: Math.random() * W,
+      y: reset ? H + 10 : Math.random() * H,
+      vy: -0.15 - Math.random() * 0.6,
+      vx: (Math.random() - 0.5) * 0.25,
+      size: 0.7 + Math.random() * 2,
+      life: 0,
+      maxLife: 380 + Math.random() * 500,
+      hue: 14 + Math.random() * 22
+    };
+  }
+
+  function resize(){
+    W = window.innerWidth;
+    H = window.innerHeight;
+    canvas.width = W * dpr;
+    canvas.height = H * dpr;
+    canvas.style.width = W + 'px';
+    canvas.style.height = H + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+    const targetStars = isMobile() ? 45 : 110;
+    const targetEmbers = isMobile() ? 20 : 50;
+
+    while (stars.length < targetStars) stars.push(makeStar());
+    if (stars.length > targetStars) stars.length = targetStars;
+
+    while (embers.length < targetEmbers) embers.push(makeEmber(false));
+    if (embers.length > targetEmbers) embers.length = targetEmbers;
+  }
+
+  function spawnShooting(){
+    if (Math.random() < 0.003 && shooting.length < 2){
+      shooting.push({
+        x: Math.random() * W * 0.8,
+        y: Math.random() * H * 0.4,
+        vx: 4 + Math.random() * 3,
+        vy: 1.5 + Math.random() * 1.5,
+        life: 0,
+        maxLife: 55 + Math.random() * 45
+      });
+    }
+  }
+
+  function tick(){
+    ctx.clearRect(0, 0, W, H);
+
+    // Звёзды (мерцают)
+    for (let i = 0; i < stars.length; i++){
+      const s = stars[i];
+      s.phase += s.speed;
+      const a = s.base * (0.4 + 0.6 * Math.sin(s.phase));
+      ctx.beginPath();
+      ctx.fillStyle = `rgba(250, 235, 205, ${a})`;
+      ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    // Тлеющие угольки (поднимаются вверх, градиентный glow)
+    for (let i = 0; i < embers.length; i++){
+      const p = embers[i];
+      p.x += p.vx;
+      p.y += p.vy;
+      p.life++;
+      const alpha = Math.sin((p.life / p.maxLife) * Math.PI) * 0.6;
+      if (p.y < -20 || p.life > p.maxLife){
+        Object.assign(p, makeEmber(true));
+        continue;
+      }
+      const grad = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.size * 5);
+      grad.addColorStop(0, `hsla(${p.hue}, 100%, 62%, ${alpha})`);
+      grad.addColorStop(0.5, `hsla(${p.hue}, 100%, 55%, ${alpha * 0.35})`);
+      grad.addColorStop(1, `hsla(${p.hue}, 100%, 55%, 0)`);
+      ctx.fillStyle = grad;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.size * 5, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    // Падающие звёзды
+    spawnShooting();
+    for (let i = shooting.length - 1; i >= 0; i--){
+      const s = shooting[i];
+      s.x += s.vx;
+      s.y += s.vy;
+      s.life++;
+      const a = Math.sin((s.life / s.maxLife) * Math.PI) * 0.9;
+      const tailX = s.x - s.vx * 7;
+      const tailY = s.y - s.vy * 7;
+      const grad = ctx.createLinearGradient(tailX, tailY, s.x, s.y);
+      grad.addColorStop(0, 'rgba(255, 200, 120, 0)');
+      grad.addColorStop(1, `rgba(255, 220, 160, ${a})`);
+      ctx.strokeStyle = grad;
+      ctx.lineWidth = 1.6;
+      ctx.beginPath();
+      ctx.moveTo(tailX, tailY);
+      ctx.lineTo(s.x, s.y);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.fillStyle = `rgba(255, 240, 200, ${a})`;
+      ctx.arc(s.x, s.y, 1.8, 0, Math.PI * 2);
+      ctx.fill();
+      if (s.life > s.maxLife || s.x > W + 60 || s.y > H + 60){
+        shooting.splice(i, 1);
+      }
+    }
+
+    requestAnimationFrame(tick);
+  }
+
+  resize();
+  window.addEventListener('resize', resize);
+  requestAnimationFrame(tick);
+})();
+
+/* ============================================================
+   INIT
+   ============================================================ */
+(function init(){
+  loadState();
+  setCity(currentCity);
+  renderCatalog();
+  renderCart();
+  observeReveals();
+  const y = $('#year');
+  if (y) y.textContent = new Date().getFullYear();
+
+  if (location.hash === '#rental'){ currentTab = 'rental'; }
+})();
+
+/* ============================================================
+   ИНСТРУКЦИЯ — где менять:
+   - Номер WhatsApp: const WHATSAPP_NUMBER в начале скрипта
+     (формат: только цифры, с кодом страны, без + и пробелов).
+   - Товары и цены: массивы HOOKAHS, TOBACCOS, ACCESSORIES,
+     COMBOS, RENTAL_EXTRAS — все в начале скрипта.
+   - Режим работы и города: текст в футере, блок «Города и график».
+   - Цвета: CSS-переменные :root в начале <style>.
+   - Параметры фоновых частиц: STAR_COUNT/EMBER_COUNT и скорость
+     в функции initBackgroundParticles().
+   ============================================================ */
+</script>
+</body>
+</html>
